@@ -3,6 +3,8 @@ package com.NTeam.simpledictionary
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import com.NTeam.simpledictionary.models.Favorite
@@ -10,16 +12,26 @@ import com.mkhrussell.simpledictionary.DatabaseHelper
 import com.mkhrussell.simpledictionary.R
 import kotlinx.android.synthetic.main.activity_word_detail.*
 import java.lang.Exception
+import java.util.*
 
 class WordDetailActivity : AppCompatActivity() {
 
     companion object {
         const val WORD_ID = "WORD_ID"
     }
-
+    lateinit var mTTS: TextToSpeech
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_word_detail)
+
+        if (DictionaryEntryContract.TABLE_NAME == "va"){
+            btn_voice.visibility = View.GONE
+            favBtn.visibility = View.GONE
+        }
+        else{
+            btn_voice.visibility = View.VISIBLE
+            favBtn.visibility = View.VISIBLE
+        }
 
         favBtn.setOnClickListener {
             try {
@@ -36,11 +48,28 @@ class WordDetailActivity : AppCompatActivity() {
                 //}
 
             }catch (e: Exception){
-                val intent = Intent(this, DictionaryActivity::class.java)
+                val intent = Intent(this, FavoriteList::class.java)
                 startActivity(intent)
+                Toast.makeText(this, "Click Button add", Toast.LENGTH_SHORT).show()
             }
 
         }
+        mTTS = TextToSpeech(applicationContext, TextToSpeech.OnInitListener { status ->
+            if (status != TextToSpeech.ERROR){
+                mTTS.language = Locale.UK
+            }
+        })
+
+        btn_voice.setOnClickListener{
+            val toSpeak = txtWord.text.toString()
+            if (toSpeak == ""){
+                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+            }else {
+                Toast.makeText(this, toSpeak, Toast.LENGTH_SHORT).show()
+                mTTS.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null)
+            }
+        }
+
         val wordId = intent.getStringExtra(WORD_ID) ?: ""
         if(wordId.isBlank()) {
             finish()
