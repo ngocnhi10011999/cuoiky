@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/linearLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Button
+        android:id="@+id/btn_en"
+        android:layout_width="fill_parent"
+        android:layout_height="63dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:padding="3dp"
+        android:text="English - Vietnamese"
+        android:textStyle="bold"></Button>
+
+    <Button
+        android:id="@+id/btn_vi"
+        android:layout_width="fill_parent"
+        android:layout_height="63dp"
+        android:text="Vietnamese - English"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:padding="3dp"
+        android:textStyle="bold"></Button>
+
+    <Button
+        android:id="@+id/btn_fav"
+        android:layout_width="fill_parent"
+        android:layout_height="63dp"
+        android:text="Favorites words"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:padding="3dp"
+        android:textStyle="bold"></Button>
+</LinearLayout>
+
+    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->

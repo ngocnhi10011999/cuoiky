@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Simple Dictionary</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="action_search_hint">Search word</string>
+    <string name="dictionary_db_preparing">Preparing Database...</string>
+    <string name="dictionary_change">Vietnamese - English</string>
+    <string name="button">Button</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="poun">Poun</string>
+    <string name="des">Des</string>
+    <string name="word">Word</string>
+    <string name="textview">TextView</string>
+</resources>

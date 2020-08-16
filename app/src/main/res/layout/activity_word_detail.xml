@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.NTeam.simpledictionary.WordDetailActivity">
+
+    <Button
+        android:id="@+id/favBtn"
+        android:layout_width="41dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center|end"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/ic_fav" />
+
+    <TextView
+        android:id="@+id/txtWord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:text="Word" />
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/ic_voice"
+        android:gravity="bottom|end" />
+
+    <TextView
+        android:id="@+id/txtType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        tools:text="Type" />
+
+    <TextView
+        android:id="@+id/txtMeaning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        tools:text="Meaning" />
+
+</LinearLayout>
+    <!--        android:background="@drawable/ic_favorite_red_24dp"-->
