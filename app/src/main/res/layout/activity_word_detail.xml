@@ -49,5 +49,11 @@
         android:textSize="20sp"
         tools:text="Meaning" />
 
+    <Button
+        android:id="@+id/btn_mic"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_mic"/>
+
 </LinearLayout>
     <!--        android:background="@drawable/ic_favorite_red_24dp"-->

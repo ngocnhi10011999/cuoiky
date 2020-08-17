@@ -2,6 +2,7 @@ package com.NTeam.simpledictionary
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
@@ -36,6 +37,18 @@ class FavDBHelper(context: Context, name: String?, factory: SQLiteDatabase.Curso
         onCreate(db)
     }
 
+    fun checkWord(word: String): Boolean {
+        var boolean = true
+        val qry = "Select $COLUMN_WORD from $TABLE_NAME where $COLUMN_WORD = ?"
+        val db = this.readableDatabase
+        val cursor = db.rawQuery(qry, arrayOf(word))
+        if (cursor.count == 0){
+            boolean = false
+        }
+        cursor.close()
+        db.close()
+        return boolean
+    }
     fun getFavorites(mcontext: Context) : ArrayList<Favorite>{
         val qry = "Select * from $TABLE_NAME"
         val db = this.readableDatabase
